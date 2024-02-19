@@ -49,6 +49,5 @@ button:hover {
 }
 
 .highlight {
-  border-width: 10px;
-  border-color: aqua;
+  background-color: green;
 }

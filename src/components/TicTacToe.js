@@ -17,6 +17,7 @@ const TicTacToe = () => {
   ]);
 
   const [playerSymbol, setPlayerSymbol] = useState(null);
+  const [winningSequence, setwinningSequence] = useState(null);
 
   const [winner, setWinner] = useState(null);
 
@@ -34,6 +35,7 @@ const TicTacToe = () => {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+        setwinningSequence(lines[i]);
         return board[a];
       }
     }
@@ -95,22 +97,6 @@ const TicTacToe = () => {
     }
   }, [board]);
 
-  // const renderBox = (index) => {
-  //   return (
-  //     <div
-  //       className={`box ${
-  //         winner && winner !== "Tie" && winner.includes(index)
-  //           ? "highlight"
-  //           : ""
-  //       }`}
-  //       onClick={() => handleBoxClick(index)}
-  //       key={index}
-  //     >
-  //       {board[index]}
-  //     </div>
-  //   );
-  // };
-
   const restartGame = () => {
     setBoard(Array(9).fill(null));
     setWinner(null);
@@ -129,7 +115,7 @@ const TicTacToe = () => {
           {board.map((box, index) => (
             <div
               className={`box ${
-                winner && winner !== "Tie" && winner.includes(index)
+                winner && winner !== "Tie" && winningSequence.includes(index)
                   ? "highlight"
                   : ""
               }`}
