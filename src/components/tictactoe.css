@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  font-size: 36px;
+  border: 2px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.box:hover {
+  background-color: #f0f0f0;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+button {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
