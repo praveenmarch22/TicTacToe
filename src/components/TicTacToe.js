@@ -95,21 +95,21 @@ const TicTacToe = () => {
     }
   }, [board]);
 
-  const renderBox = (index) => {
-    return (
-      <div
-        className={`box ${
-          winner && winner !== "Tie" && winner.includes(index)
-            ? "highlight"
-            : ""
-        }`}
-        onClick={() => handleBoxClick(index)}
-        key={index}
-      >
-        {board[index]}
-      </div>
-    );
-  };
+  // const renderBox = (index) => {
+  //   return (
+  //     <div
+  //       className={`box ${
+  //         winner && winner !== "Tie" && winner.includes(index)
+  //           ? "highlight"
+  //           : ""
+  //       }`}
+  //       onClick={() => handleBoxClick(index)}
+  //       key={index}
+  //     >
+  //       {board[index]}
+  //     </div>
+  //   );
+  // };
 
   const restartGame = () => {
     setBoard(Array(9).fill(null));
@@ -126,7 +126,19 @@ const TicTacToe = () => {
       )}
       {playerSymbol && (
         <div className="board">
-          {board.map((box, index) => renderBox(index))}
+          {board.map((box, index) => (
+            <div
+              className={`box ${
+                winner && winner !== "Tie" && winner.includes(index)
+                  ? "highlight"
+                  : ""
+              }`}
+              onClick={() => handleBoxClick(index)}
+              key={index}
+            >
+              {board[index]}
+            </div>
+          ))}
         </div>
       )}
       {winner && winner !== "Tie" && <h2>{`${winner} wins!`}</h2>}
